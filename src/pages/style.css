@@ -1,0 +1,76 @@
+.dashboard-logo {
+    display: block;
+    object-fit: cover;
+    width: 42px;
+    height: 42px;
+}
+.logo {
+    min-height: 52px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dashboard-title {
+    margin-bottom: 0 !important;
+    line-height: 42px;
+    color: white !important;
+}
+
+.dashboard-title-hidden {
+    opacity: 0;
+    display: inline-block !important;
+}
+
+.dashboard__logo-size {
+    max-width: 42px;
+    max-height: 42px;
+}
+.trigger {
+    position: relative;
+    left: -24px;
+    display: inline-block;
+    z-index: 99999999999999;
+}
+
+.site-layout-background {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.background_weather {
+    height: 100%;
+    width: 100%;
+}
+
+.weather_logo {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+}
+
+.location {
+   font-size: 1.15rem;
+   font-weight: 500;
+}
+
+.wind {
+    margin-top: 4px;
+    border-top: 1px solid;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    padding-top: 2px;
+}
+
+.select_country {
+    border: none;
+}
+
+.select_country > .ant-select-selector {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid #e6e6e6 !important;
+    color: white !important;
+   
+}
