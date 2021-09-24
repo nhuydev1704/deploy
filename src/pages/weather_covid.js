@@ -9,6 +9,7 @@ import SlideWeather from '../components/Weather/SlideWeather';
 import { dataCountry } from '../data/country.js';
 import bgr from '../images/weather_bgr.jpg';
 import bgr2 from '../images/weather_night-new.jpg';
+import CountUp from 'react-countup';
 const { Option } = Select;
 
 const CardCustom = styled(Card)`
@@ -53,7 +54,7 @@ const WeatherCovid = () => {
     const [dataCovidDetail, setDataCovidDetail] = useState([]);
     const { theme } = useSelector(state => state);
     const [loading, setLoading] = useState(false)
-    const [valueCode, setValueCode] = useState(1581129)
+    const [valueCode, setValueCode] = useState(1581130)
     const [countryName, setCountryName] = useState("Hà Nội")
 
     useEffect(() => {
@@ -70,7 +71,7 @@ const WeatherCovid = () => {
                     axios.get('https://api-kent.netlify.app/.netlify/functions/api/vn')
                 setDataCovid(res3.data)
                 setDataCovidDetail(res3.data.detail)
-                if (res.status == 200 && res2.status == 200) {
+                if (res.status === 200 && res2.status === 200) {
                     setLoading(false)
                 }
             }
@@ -94,7 +95,7 @@ const WeatherCovid = () => {
     }
 
     const dataCovidCountry = rsCovid.filter(item => {
-        return item.name == countryName
+        return item.name === countryName
     })
 
     function handleChange(value) {
@@ -105,13 +106,12 @@ const WeatherCovid = () => {
         setValueCode(value);
     }
 
-    console.log(dataCovidCountry)
     return (
         <div style={{ height: '88vh' }}>
             <Row>
                 <Col span={24}>
                     <Spin spinning={loading} tip="Đang tải dữ liệu...">
-                        <CardCustom style={{ backgroundImage: `url(${theme == true ? bgr : bgr2})` }} theme2={theme.toString()} className="background_weather">
+                        <CardCustom style={{ backgroundImage: `url(${theme === true ? bgr : bgr2})` }} theme2={theme.toString()} className="background_weather">
                             <Row gutter={[16, 16]}>
                                 <Col style={{ height: '250px', padding: '0px 60px' }} span={24}>
                                     <Row style={{ height: '100%' }} justify="space-between">
@@ -152,7 +152,7 @@ const WeatherCovid = () => {
                                                     <Col span={8}>
                                                         <Select
                                                             className="select_country"
-                                                            defaultValue={1581129}
+                                                            defaultValue={1581130}
                                                             onChange={handleChange}
                                                             showSearch
                                                             style={{ width: 200 }}
@@ -200,7 +200,7 @@ const WeatherCovid = () => {
                                                                         style={{ borderLeft: '5px solid rgb(201, 48, 44)' }}
                                                                     >
                                                                         <p>Số ca nhiễm</p>
-                                                                        <strong>{dataCovidCountry[0].cases}</strong>
+                                                                        <strong><CountUp end={parseInt(dataCovidCountry[0].cases)} duration={3} /></strong>
                                                                     </CardCustom2>
                                                                 </Col>
                                                                 <Col lg={24} xl={12} md={24} xs={24}>
@@ -209,7 +209,7 @@ const WeatherCovid = () => {
                                                                         style={{ borderLeft: '5px solid rgb(40, 167, 69)' }}
                                                                         theme2={theme.toString()}>
                                                                         <p>Số ca hồi phục</p>
-                                                                        <strong>{dataCovidCountry[0].recovered}</strong>
+                                                                        <strong><CountUp end={parseInt(dataCovidCountry[0].recovered)} duration={3} /></strong>
                                                                     </CardCustom2>
                                                                 </Col>
                                                                 <Col span={6}></Col>
@@ -219,7 +219,7 @@ const WeatherCovid = () => {
                                                                         style={{ borderLeft: '5px solid gray' }}
                                                                         theme2={theme.toString()}>
                                                                         <p>Số ca tử vong</p>
-                                                                        <strong>{dataCovidCountry[0].deaths}</strong>
+                                                                        <strong><CountUp end={parseInt(dataCovidCountry[0].deaths)} duration={3} /></strong>
                                                                     </CardCustom2>
                                                                 </Col>
                                                                 <Col span={6}></Col>
