@@ -50,8 +50,8 @@
 }
 
 .location {
-   font-size: 1.15rem;
-   font-weight: 500;
+    font-size: 1.15rem;
+    font-weight: 500;
 }
 
 .wind {
@@ -72,5 +72,8 @@
     border: none !important;
     border-bottom: 1px solid #e6e6e6 !important;
     color: white !important;
-   
+}
+
+.custom_card-chatbot {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
