@@ -58,6 +58,9 @@ function Siders(props) {
                     <Menu.Item key="3">
                         <Link to="/chatbot_case">Training - ChatBot</Link>
                     </Menu.Item>
+                    <Menu.Item key="4">
+                        <Link to="/gantt_chart">Quản lý TimeLine</Link>
+                    </Menu.Item>
                 </SubMenu>
 
                 <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">

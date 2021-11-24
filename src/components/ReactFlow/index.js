@@ -8,6 +8,7 @@ import ReactFlow, {
     ReactFlowProvider,
 } from 'react-flow-renderer';
 import axios from 'axios';
+import { API_URL } from '../../apis/fetchData';
 
 const elements = [
     {
@@ -53,7 +54,7 @@ const ReactFlowChatBot = ({ loadding, setDataQuestion, callback, setLoading }) =
         let dataElm = [];
         let dataSource = [];
 
-        const res = await axios.get('http://localhost:5000/api/chatbot');
+        const res = await axios.get(`${API_URL}/api/chatbot`);
         if (res.status === 200) {
             res.data.forEach((item) => {
                 dataSource.push({ id: item.id, text: item.data.label });
@@ -91,7 +92,7 @@ const ReactFlowChatBot = ({ loadding, setDataQuestion, callback, setLoading }) =
         };
         console.log('🚀 ~ file: index.js ~ line 85 ~ onNodeDragStop ~ position', position);
 
-        await axios.put(`http://localhost:5000/api/chatbot_position/${node.id}`, { position });
+        await axios.put(`${API_URL}/api/chatbot_position/${node.id}`, { position });
         // const res = await ApiComponents.update(urlChatBotCaseDetail, node.id, data);
     }
 

@@ -5183,6 +5183,11 @@ detect-port-alt@1.1.6:
     address "^1.0.1"
     debug "^2.6.0"
 
+dhtmlx-gantt@^7.1.7:
+  version "7.1.7"
+  resolved "https://registry.yarnpkg.com/dhtmlx-gantt/-/dhtmlx-gantt-7.1.7.tgz#812aa026c5bf7b5ed6148aa1a82155115fc21f6c"
+  integrity sha512-n6OhU1oGIg0Llc33zzwb3cbLa5aMd/XC/JDLPDihIGVtxY2IyYuo921EZH6t2AIaWOTU8h6v0OSD2BCCPXO/xQ==
+
 diff-sequences@^26.6.2:
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-26.6.2.tgz#48ba99157de1923412eed41db6b6d4aa9ca7c0b1"

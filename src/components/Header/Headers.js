@@ -3,23 +3,23 @@ import { Avatar, Badge, Button, Drawer, Image, Row, Space, Switch as Sw, notific
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../../redux/actions/themeAction';
-import { delDataNotoken, getDataNotoken } from '../../apis/fetchData';
+import { API_URL, delDataNotoken, getDataNotoken } from '../../apis/fetchData';
 
 function Headers(props) {
     const [visible, setVisible] = useState(false);
     const [themeHome, setThemeHome] = useState('light');
     const [dataNoti, setDataNoti] = useState([]);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const [result, setResult] = useState(0);
     const [callback, setCallback] = useState(false);
 
-    const { socket } = useSelector(state => state);
+    const { socket } = useSelector((state) => state);
 
     const dispatch = useDispatch();
-    const changeTheme = value => {
+    const changeTheme = (value) => {
         dispatch(toggleTheme(themeHome === 'dark' ? true : false));
-        setThemeHome(value ? 'dark' : 'light')
+        setThemeHome(value ? 'dark' : 'light');
     };
 
     const showDrawer = () => {
@@ -32,46 +32,46 @@ function Headers(props) {
     const OndelNotification = async (id) => {
         try {
             setLoading(true);
-            await delDataNotoken('https://shopcnpm.herokuapp.com/api/notification', id);
-            setCallback(!callback)
-            setLoading(false)
-        } catch (error) {
-
-        }
-    }
+            await delDataNotoken(`${API_URL}/api/notification`, id);
+            setCallback(!callback);
+            setLoading(false);
+        } catch (error) {}
+    };
 
     useEffect(() => {
         try {
-            setLoading(true)
+            setLoading(true);
             const getData = async (url) => {
-                const res = await getDataNotoken(url, '')
-                console.log(res)
+                const res = await getDataNotoken(url, '');
+                console.log(res);
                 if (res.status === 200) {
-                    setDataNoti(res.data.notifications)
-                    setResult(res.data.result)
+                    setDataNoti(res.data.notifications);
+                    setResult(res.data.result);
                 }
-                setLoading(false)
-            }
-            getData(`https://shopcnpm.herokuapp.com/api/notification?limit=${page * 5}`);
+                setLoading(false);
+            };
+            getData(`${API_URL}/api/notification?limit=${page * 5}`);
         } catch (e) {
             console.log(e);
         }
-    }, [page, callback])
+    }, [page, callback]);
 
     useEffect(() => {
         if (socket) {
-            socket.on('sendNotiToClient', noti => {
-                setCallback(!callback)
+            socket.on('sendNotiToClient', (noti) => {
+                setCallback(!callback);
                 notification['info']({
                     message: 'Thông báo',
-                    description: noti.action === 'register' ? `${noti.name} đã đăng kí tài khoản vào lúc ${new Date(noti.createdAt).toLocaleString()}` : '',
+                    description:
+                        noti.action === 'register'
+                            ? `${noti.name} đã đăng kí tài khoản vào lúc ${new Date(noti.createdAt).toLocaleString()}`
+                            : '',
                 });
-            })
-            
+            });
 
-            return () => socket.off('sendNotiToClient')
+            return () => socket.off('sendNotiToClient');
         }
-    }, [socket,callback])
+    }, [socket, callback]);
 
     return (
         <>
@@ -81,18 +81,18 @@ function Headers(props) {
                         size="small"
                         style={{ background: props.theme ? '#fff' : '#141414', border: 'none' }}
                         shape="circle"
-                        icon={<QuestionCircleOutlined
-                            style={{ color: props.theme ? '#000' : 'rgba(255, 255, 255, .65)' }}
-                        />}
+                        icon={
+                            <QuestionCircleOutlined
+                                style={{ color: props.theme ? '#000' : 'rgba(255, 255, 255, .65)' }}
+                            />
+                        }
                     />
                     <Badge count={dataNoti.length}>
                         <Button
                             style={{ background: props.theme ? '#fff' : '#141414', border: 'none' }}
                             size="small"
                             shape="circle"
-                            icon={<BellOutlined
-                                style={{ color: props.theme ? '#000' : 'rgba(255, 255, 255, .65)' }}
-                            />}
+                            icon={<BellOutlined style={{ color: props.theme ? '#000' : 'rgba(255, 255, 255, .65)' }} />}
                             onClick={showDrawer}
                         />
                     </Badge>
@@ -121,7 +121,7 @@ function Headers(props) {
                         <List
                             itemLayout="horizontal"
                             dataSource={dataNoti}
-                            renderItem={noti => (
+                            renderItem={(noti) => (
                                 <List.Item>
                                     <List.Item.Meta
                                         title={
@@ -133,20 +133,23 @@ function Headers(props) {
                                                     shape="circle"
                                                     size="small"
                                                     danger
-                                                    icon={<CloseOutlined />}>
-                                                </Button>
+                                                    icon={<CloseOutlined />}
+                                                ></Button>
                                             </div>
                                         }
-                                        description={noti.action === 'register' ? `${noti.name} đã đăng kí tài khoản vào lúc ${new Date(noti.createdAt).toLocaleString()}` : ''}
+                                        description={
+                                            noti.action === 'register'
+                                                ? `${noti.name} đã đăng kí tài khoản vào lúc ${new Date(
+                                                      noti.createdAt
+                                                  ).toLocaleString()}`
+                                                : ''
+                                        }
                                     />
                                 </List.Item>
                             )}
                         />
                         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4px' }}>
-                            <Button
-                                type="primary"
-                                disabled={(result < (page * 5))}
-                                onClick={() => setPage(page + 1)}>
+                            <Button type="primary" disabled={result < page * 5} onClick={() => setPage(page + 1)}>
                                 Xem thêm
                             </Button>
                         </div>
@@ -154,7 +157,7 @@ function Headers(props) {
                 </Drawer>
             </Row>
         </>
-    )
+    );
 }
 
-export default Headers
+export default Headers;

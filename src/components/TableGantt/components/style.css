@@ -1,0 +1,65 @@
+.table_gantt .rowGantt {
+    width: 100%;
+    height: 25px;
+    background-color: #367fa9;
+    color: #fff;
+    border: 0px solid #d9d9d9;
+    border-radius: 0px;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 2px;
+}
+.table_gantt td {
+    padding: 5px 0px !important;
+    height: 30px;
+    white-space: break-spaces !important;
+    line-height: 18px !important;
+}
+
+.table_gantt .ant-table-measure-row {
+    display: none;
+}
+
+.table_gantt .info_row {
+    padding-left: 5px !important;
+}
+
+.table_gantt th {
+    font-size: 11px !important;
+    height: 20px !important;
+    text-align: center;
+}
+
+/* css card toolbar */
+.card_toolbar-main {
+    margin: 0 5px 2px !important;
+}
+
+.card_toolbar-main > .ant-card-body {
+    padding: 8px !important;
+}
+
+.card_toolbar-gantt {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0 !important;
+}
+
+.card_toolba-zoom {
+    display: flex;
+    align-items: center;
+}
+
+.card_toolba-zoom > label {
+    margin: 0 6px;
+    display: flex;
+    align-items: center;
+}
+
+.card_toolba-zoom > label > span {
+    padding-left: 4px;
+}
+
+.card_toolba-zoom > label > input {
+    margin-top: -2px;
+}

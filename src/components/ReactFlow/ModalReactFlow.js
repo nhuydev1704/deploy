@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Radio, Input, Space, Row, Col, Select } from 'antd';
 import { Controller, useForm } from 'react-hook-form';
 import axios from 'axios';
+import { API_URL } from '../../apis/fetchData';
 
 const { Option } = Select;
 
@@ -34,7 +35,7 @@ const ModalReactFlow = ({
             type: data.type,
         };
 
-        const res = await axios.post('http://localhost:5000/api/chatbot', newData);
+        const res = await axios.post(`${API_URL}/api/chatbot`, newData);
 
         setCallback(!callback);
         setIsModalVisible(false);
@@ -47,7 +48,7 @@ const ModalReactFlow = ({
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalVisible} onOk={handleSubmit(handleOk)} onCancel={handleCancel}>
+            <Modal title="Thêm câu hỏi" visible={isModalVisible} onOk={handleSubmit(handleOk)} onCancel={handleCancel}>
                 <Row>
                     <Col span={24}>
                         <Row gutter={[12, 12]}>

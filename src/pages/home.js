@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import DashBoard from '../components/DashBoard/DashBoard';
 import Headers from '../components/Header/Headers';
 import Siders from '../components/Sider/Siders';
+import TableGantt from '../components/TableGantt';
 import ChatBotCase from './chatbot_case';
 import './style.css';
 import WeatherCovid from './weather_covid';
@@ -54,6 +55,7 @@ function Home() {
                         <Route exact path="/" component={DashBoard} />
                         <Route exact path="/weather_covid" component={WeatherCovid} />
                         <Route exact path="/chatbot_case" component={ChatBotCase} />
+                        <Route exact path="/gantt_chart" component={TableGantt} />
                     </Switch>
                 </ContentCustom>
                 <Footer style={{ textAlign: 'center' }}>kakakakka ©2021 Created by my coder_y</Footer>

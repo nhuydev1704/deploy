@@ -1,0 +1,365 @@
+.table_gantt .rowGantt {
+    width: 100%;
+    height: 25px;
+    background-color: #367fa9;
+    color: #fff;
+    border: 0px solid #d9d9d9;
+    border-radius: 0px;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 2px;
+}
+.table_gantt td {
+    padding: 5px 0px !important;
+    height: 30px;
+}
+
+.table_gantt .ant-table-measure-row {
+    display: none;
+}
+
+.table_gantt .info_row {
+    padding-left: 5px !important;
+}
+
+.table_gantt th {
+    font-size: 11px !important;
+    height: 20px !important;
+    text-align: center;
+}
+
+.button_action {
+    margin: 0 10px !important;
+    background-color: #fff !important;
+}
+
+.title_view_mode {
+    padding-right: 10px;
+}
+
+.gantt-container {
+    height: 100%;
+    margin: 0 5px;
+}
+
+/* setting color task */
+/* common styles for overriding borders/progress color */
+.gantt_task_line {
+    border-color: rgba(0, 0, 0, 0.25);
+}
+.gantt_task_line .gantt_task_progress {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* high */
+.gantt_task_line.high {
+    background-color: #f50;
+}
+.gantt_task_line.high .gantt_task_content {
+    color: #fff;
+}
+
+/* medium */
+.gantt_task_line.medium {
+    background-color: #0f40df;
+}
+.gantt_task_line.medium .gantt_task_content {
+    color: #fff;
+}
+
+/* low */
+.gantt_task_line.low {
+    background-color: magenta;
+}
+.gantt_task_line.low .gantt_task_content {
+    color: #fff;
+}
+
+/* today */
+#today {
+    height: 94vh;
+    width: 3px;
+    top: 0;
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.4);
+}
+
+/* bắt dầu hợp đồng */
+.status_line {
+    background-color: #0ca30a !important;
+}
+
+/* bắt đầu công việc */
+.status_line-task {
+    background-color: #ffeb3b;
+}
+
+/* cuối tuần */
+.weekend {
+    background: #e0e6e0 !important;
+}
+
+.gantt_selected .weekend {
+    background: #f7eb91 !important;
+}
+
+/* % hoàn thành task */
+.gantt_task_progress {
+    text-align: left;
+    padding-left: 10px;
+    box-sizing: border-box;
+    color: white;
+    font-weight: bold;
+}
+
+/* selected column */
+.highlighted-column {
+    background-color: #fff3a1;
+}
+
+.gantt_task_scale .gantt_scale_cell {
+    cursor: default;
+}
+
+.gantt_task_scale .gantt_scale_cell.highlighted-column {
+    color: #454545;
+    font-weight: bold;
+}
+
+/* note */
+.note_priority {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.note_priority ~ div > span {
+    display: inline-block;
+    position: relative;
+    padding: 0 0 0 13px;
+    margin: 0 10px 0 0;
+}
+
+.note_priority-heigth::after {
+    content: '';
+    height: 10px;
+    width: 10px;
+    background-color: #f50;
+    display: block;
+    position: absolute;
+    top: 47%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.note_priority-medium::after {
+    content: '';
+    height: 10px;
+    width: 10px;
+    background-color: #87d068;
+    display: block;
+    position: absolute;
+    top: 47%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.note_priority-low::after {
+    content: '';
+    height: 10px;
+    width: 10px;
+    background-color: magenta;
+    display: block;
+    position: absolute;
+    top: 47%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+/* tình trạng */
+.note_priority-success::after {
+    content: '';
+    height: 10px;
+    width: 10px;
+    background-color: rgb(56, 226, 22);
+    display: block;
+    position: absolute;
+    top: 47%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.note_priority-overdure::after {
+    content: '';
+    height: 10px;
+    width: 10px;
+    background-color: rgb(226, 22, 22);
+    display: block;
+    position: absolute;
+    top: 47%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+/* .note_priority-middle {
+    padding: 0 20px;
+} */
+
+/* status task */
+.note_priority-statustask {
+    background-color: magenta;
+    padding: 6px 10px;
+    margin-top: 4px;
+    position: relative;
+}
+
+.note_priority-statustask-status {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    width: 50%;
+    top: 0;
+}
+
+.note_priority-arrow1 {
+    height: 100%;
+    width: 100%;
+    left: 0%;
+    bottom: unset;
+    background-position: bottom;
+    background-image: url('./config/arrow.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+}
+.note_priority-arrow2 {
+    height: 100%;
+    width: 100%;
+    left: -50%;
+    bottom: unset;
+    background-position: bottom;
+    background-image: url('./config/arrow.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+}
+.note_priority-arrow3 {
+    height: 100%;
+    width: 100%;
+    left: 50%;
+    bottom: unset;
+    background-position: bottom;
+    background-image: url('./config/arrow.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+}
+
+/* overdure_task */
+.gantt_task_line.overdure_task {
+    background-color: rgb(226, 22, 22) !important;
+}
+
+.gantt_task_line.overdure_task-success {
+    background-color: rgb(56, 226, 22) !important;
+}
+
+/* text status */
+.text_status-task {
+    display: block;
+    font-size: 1rem;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* .card_toolbar-note {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+} */
+
+/* css full screen */
+
+.gantt-fullscreen {
+    position: absolute;
+    bottom: 50px;
+    right: 40px;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    font-size: 32px;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.5;
+    text-align: center;
+    -webkit-transition: background-color 0.5s, opacity 0.5s;
+    transition: background-color 0.5s, opacity 0.5s;
+    z-index: 99999;
+}
+
+.gantt-fullscreen:hover {
+    opacity: 1;
+}
+
+.ganttchart_container {
+    z-index: 1050 !important;
+}
+
+/* .gantt_tree_content,
+.gantt_task_content {
+    line-height: 12px;
+    white-space: normal;
+    overflow-wrap: break-word;
+} */
+
+.custom_button-addtask {
+    height: 0;
+    width: 0;
+    padding: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: transparent;
+    font-size: 2rem;
+    border: none;
+    font-weight: 500;
+    color: rgb(43, 226, 89);
+    transition: all 0.125 ease-in-out;
+}
+.custom_button-addtask:hover {
+    background: #367fa9;
+    color: white;
+}
+
+.main_page-gantt {
+    height: 92vh;
+}
+div.sample_info_here {
+    position: relative;
+    width: auto;
+    margin: 20px;
+    font-family: Roboto, Arial, Helvetica;
+    font-size: 14px;
+    color: #404040;
+}
+div.sample_info_here div.sample_info_title {
+    line-height: 18px;
+    font-size: 15px;
+    color: #3b5e7c;
+}
+div#tree_here {
+    width: 350px;
+    height: 400px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #dfdfdf;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.09);
+}
