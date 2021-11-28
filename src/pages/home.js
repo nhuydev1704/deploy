@@ -5,10 +5,12 @@ import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import DashBoard from '../components/DashBoard/DashBoard';
+import CreateEmployee from '../components/Employee/CreateEmployee';
 import Headers from '../components/Header/Headers';
 import Siders from '../components/Sider/Siders';
 import TableGantt from '../components/TableGantt';
 import ChatBotCase from './chatbot_case';
+import Employee from './employee';
 import './style.css';
 import WeatherCovid from './weather_covid';
 
@@ -56,6 +58,8 @@ function Home() {
                         <Route exact path="/weather_covid" component={WeatherCovid} />
                         <Route exact path="/chatbot_case" component={ChatBotCase} />
                         <Route exact path="/gantt_chart" component={TableGantt} />
+                        <Route exact path="/employee" component={Employee} />
+                        <Route exact path="/employee/create" component={CreateEmployee} />
                     </Switch>
                 </ContentCustom>
                 <Footer style={{ textAlign: 'center' }}>kakakakka ©2021 Created by my coder_y</Footer>

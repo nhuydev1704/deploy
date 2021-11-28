@@ -59,6 +59,9 @@ function Siders(props) {
                         <Link to="/chatbot_case">Training - ChatBot</Link>
                     </Menu.Item>
                     <Menu.Item key="4">
+                        <Link to="/employee">Quản lý nhân viên</Link>
+                    </Menu.Item>
+                    <Menu.Item key="5">
                         <Link to="/gantt_chart">Quản lý TimeLine</Link>
                     </Menu.Item>
                 </SubMenu>
